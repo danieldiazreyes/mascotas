@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Canin</title>
+    <style>
+       /* Estilos generales */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Estilos para el menú */
+        nav {
+            position: fixed;
+            top: 100px;
+            width: 100%;
+            background: #333;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        .menu-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+			height:50px;
+           	top:200px;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .menu-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .menu-links li {
+            margin-left: 20px;
+        }
+        
+        .menu-links a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-links a.active {
+            background: #4CAF50;
+            border-radius: 4px;
+        }
+		       /* Botón hamburguesa (oculto por defecto) */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* Estilos para móviles */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .menu-links {
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 60px);
+                background: #333;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 20px;
+                transition: all 0.5s ease;
+            }
+            
+            .menu-links.active {
+                left: 0;
+            }
+            
+            .menu-links li {
+                margin: 15px 0;
+            }
+        }
+        
+        /* Estilos para las secciones */
+        section {
+            padding-top: 80px;
+            margin-top: -50px;
+            scroll-margin-top: 100px;
+           
+        }
+		
+    .inicio {
+	background-color: #FFF;
+	height: 450px;
+	width: 100%;
+	margin-top:200px;
+}
+    .inicio2 {
+	background-color: #FFF;
+	height: 600px;
+	width: 100%;
+}
+    .inicio3 {
+	background-color: #FFF;
+	height: 800px;
+	width: 100%;
+}
+    .inicio4 {
+	background-color: #FFF;
+	height: 800px;
+	width: 100%;
+	background-color:#333;
+}
+
+
+
+    .encabezado {
+	background-color: #FFF;
+	position:fixed;
+	height: 100px;
+	width: 100%;
+	left: 0px;
+	top: 0px;
+}
+    </style>
+</head>
+<body>
+    <div class="encabezado">
+      <table width="80%" border="0" align="center">
+        <tr>
+          <td width="46%"><a href="index.html"><img src="logo.png"  height="60"></a></td>
+          <td width="54%"><div align="right"><img src="facebook.png"  height="40"></div></td>
+        </tr>
+      </table>
+    </div>
+
+
+    <!-- Menú de navegación -->
+<nav>
+         <div class="menu-container">
+            <div class="logo">LOGO</div>
+            <div class="hamburger" id="hamburger">☰</div>
+            <ul class="menu-links" id="menuLinks">
+            	<li><a href="#inicio" class="active">Inicio</a></li>
+            	<li><a href="#servicios">Servicios</a></li>
+            	<li><a href="#productos">Productos</a></li>
+            	<li><a href="#contacto">Contacto</a></li>
+        		</ul>
+         </div>
+    </nav>
+
+    <!-- Secciones -->
+    <section id="inicio">
+      <div class="inicio">
+        <table width="80%" border="0" align="center">
+          <tr>
+            <td><div align="center"><img src="2.jpg" width="1000" height="450"></div></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+    
+<section id="servicios">
+  <div class="inicio2">
+        <table width="80%" border="0" align="center">
+          <tr>
+            <td><div align="center"><img src="3.jpg" width="1000" height="600"></div></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+    
+<section id="productos">
+  <div class="inicio3">
+        <table width="80%" border="0" align="center">
+          <tr>
+            <td><div align="center"><img src="4.jpg" width="1000" height="800"></div></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+    
+<section id="contacto">
+  <div class="inicio4">
+        <table width="80%" border="0" align="center">
+          <tr>
+            <td><div align="center"><img src="5.jpg" width="1000" height="800"></div></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+  <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.menu-links a');
+            const hamburger = document.getElementById('hamburger');
+            const menuLinks = document.getElementById('menuLinks');
+            
+            // Función para actualizar el menú activo
+            function updateActiveMenu() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (pageYOffset >= (sectionTop - 100)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // Toggle del menú hamburguesa
+            hamburger.addEventListener('click', function() {
+                menuLinks.classList.toggle('active');
+            });
+            
+            // Cerrar menú al hacer clic en un enlace (solo móviles)
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        menuLinks.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Escuchar el evento de scroll
+            window.addEventListener('scroll', updateActiveMenu);
+            
+            // Actualizar al cargar la página
+            updateActiveMenu();
+        });
+    </script>
+</body>
+</html>
