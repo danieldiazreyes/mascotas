@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+<style type="text/css">
+/* Aplicar a todos los elementos con ID */
+[id] {
+  scroll-margin-top: 130px; /* Ajusta este valor según necesites */
+}
+html {
+  scroll-behavior: smooth;
+}
+
+
+body, html {
+	margin-top: 120; padding: 0;
+}
+
+.full-div { 
+	width: 100%; height: 800px;
+}
+
+.encabezado {
+	text-decoration: none;
+	height: 130px;
+	width: 100%;
+	left: 0px;
+	top: 0px;
+	position: fixed;
+	background-color:#FFF;
+	z-index: 10000;
+}
+
+.aa {
+	text-decoration: none;
+	height: 450px;
+	width: 100%;
+	left: 0px;
+	margin-top: 150px;
+}
+.bb {
+	text-decoration: none;
+	height: 600px;
+	width: 100%;
+	left: 0px;
+	top: 0px;
+	background-color: #f6f6f6;
+}
+.cc {
+	text-decoration: none;
+	height: 600px;
+	width: 100%;
+	left: 0px;
+	top: 0px;
+}
+.dd {
+	text-decoration: none;
+	height: 800px;
+	width: 100%;
+	left: 0px;
+	top: 0px;
+	color: #333333;
+	background-color: #333;
+}
+.ee {
+	text-decoration: none;
+	height: 800px;
+	width: 100%;
+	left: 0px;
+	top: 130px;
+}
+
+        .menu-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gradient-menu {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .gradient-menu a {
+            position: relative;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #333;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .gradient-menu a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #0F0, #0F0);
+            transition: width 0.3s ease;
+            border-radius: 3px;
+        }
+        
+        .gradient-menu a:hover {
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .gradient-menu a:hover::before {
+            width: 100%;
+        }
+        
+        /* Opcional: estilo para el enlace activo */
+        .gradient-menu a.active {
+            background: linear-gradient(90deg, #0F0, #0F0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .gradient-menu a.active::before {
+            width: 100%;
+        }
+</style>
+</head>
+
+<body>
+<div class="encabezado" id="encabezado">
+  <table width="80%" border="0" align="center">
+    <tr>
+      <td><div align="left"><img src="logo.png"  height="118"></div></td>
+      <td>
+        <nav class="gradient-menu">
+            <a href="#aa" class="active">INICIO</a>
+            <a href="#bb">PEDIATRIA</a>
+            <a href="#dd">CONTACTO</a>
+        </nav>
+
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+</div>
+
+<div class="aa" id="aa">
+  <table width="80%" border="0" align="center">
+    <tr>
+      <td> <div align="center"><img src="2.jpg" width="1000" height="450"></div></td>
+    </tr>
+  </table>
+</div>
+
+<div class="bb" id="bb">
+  <table width="80%" border="0" align="center">
+    <tr>
+      <td> <div align="center"><img src="3.jpg" width="1000" height="600"></div></td>
+    </tr>
+  </table>
+</div>
+
+<div class="cc" id="cc">
+  <table width="80%" border="0" align="center">
+    <tr>
+      <td> <div align="center"><img src="4.jpg" width="1000" height="800"></div></td>
+    </tr>
+  </table>
+</div>
+
+<div class="dd" id="dd">
+  <table width="80%" border="0" align="center">
+    <tr>
+      <td> <div align="center"><img src="5.jpg" width="1000" height="800"></div></td>
+    </tr>
+  </table>
+</div>
+
+</body>
+</html>
