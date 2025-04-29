@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú activo por anclaje</title>
+    <style>
+
+html {
+  scroll-behavior: smooth;
+}
+
+        /* Estilos básicos para el menú */
+        nav {
+            position: fixed;
+            top: 100px;
+            width: 100%;
+            background: #333;
+            padding: 15px 0;
+            z-index: 1000;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        nav li {
+            margin: 0 15px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a.active {
+            background: #4CAF50;
+            border-radius: 4px;
+        }
+        
+        /* Espacio para compensar el menú fijo */
+        section {
+            padding-top: 70px;
+            margin-top: -50px;
+            
+            scroll-margin-top: 70px;
+        }
+    .inicio {
+	background-color: #FFF;
+	height: 450px;
+	width: 100%;
+	margin-top:130px;
+}
+    .inicio2 {
+	background-color: #FFF;
+	height: 600px;
+	width: 100%;
+}
+    .inicio3 {
+	background-color: #FFF;
+	height: 800px;
+	width: 100%;
+}
+    .inicio4 {
+	background-color: #FFF;
+	height: 800px;
+	width: 100%;
+	background-color:#333;
+}
+
+
+
+    .encabezado {
+	background-color: #FFF;
+	position: fixed;
+	height: 100px;
+	width: 100%;
+	left: 0px;
+	top: 0px;
+}
+    </style>
+</head>
+<body>
+    <div class="encabezado">
+      <table width="80%" border="0">
+        <tr>
+          <td width="46%"><img src="logo.png"  height="60"></td>
+          <td width="54%"><div align="right"><img src="facebook.png"  height="40"></div></td>
+        </tr>
+      </table>
+    </div>
+
+
+    <!-- Menú de navegación -->
+<nav>
+        <ul>
+            <li><a href="#inicio" class="active">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Secciones -->
+    <section id="inicio">
+      <div class="inicio">
+        <table width="80%" border="0" align="center">
+          <tr>
+            <td><div align="center"><img src="2.jpg" width="1000" height="450"></div></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+    
+<section id="servicios">
+  <div class="inicio2">
+        <table width="80%" border="0" align="center">
+          <tr>
+            <td><div align="center"><img src="3.jpg" width="1000" height="600"></div></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+    
+<section id="productos">
+  <div class="inicio3">
+        <table width="80%" border="0" align="center">
+          <tr>
+            <td><div align="center"><img src="4.jpg" width="1000" height="800"></div></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+    
+<section id="contacto">
+  <div class="inicio4">
+        <table width="80%" border="0" align="center">
+          <tr>
+            <td><div align="center"><img src="5.jpg" width="1000" height="800"></div></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            // Función para actualizar el menú activo
+            function updateActiveMenu() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (pageYOffset >= (sectionTop - 100)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // Escuchar el evento de scroll
+            window.addEventListener('scroll', updateActiveMenu);
+            
+            // Actualizar al cargar la página
+            updateActiveMenu();
+        });
+    </script>
+</body>
+</html>
